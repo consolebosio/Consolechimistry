@@ -1,0 +1,412 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosiocorporation - Bibliothèque de Chimie & Sciences</title>
+    <style>
+        :root {
+            --bg-deep: #0b0f19;
+            --card-bg: #131b2e;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #131b2e, #0b0f19);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Section Responsable */
+        .manager-card {
+            background: linear-gradient(145deg, #131b2e, #1a2642);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.1);
+        }
+
+        @media (min-width: 550px) {
+            .manager-card {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .manager-img-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            flex-shrink: 0;
+        }
+
+        .manager-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .manager-info h3 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .manager-info .title-role {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .manager-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin: 30px 0 15px;
+            color: var(--gold);
+            border-left: 4px solid var(--gold);
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .card-badge {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--gold);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            width: fit-content;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--gold);
+            color: #0b0f19;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: block;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-light);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #22bf5b;
+        }
+
+        .form-box {
+            background-color: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--text-gray);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 11px;
+            background-color: var(--bg-deep);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧪 <span>Bosiocorporation</span></div>
+        <p class="tagline">Bibliothèque Numérique & Excellence Académique - Kisangani</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECTION RESPONSABLE AVEC TA PHOTO PNG -->
+        <div class="manager-card">
+            <div class="manager-img-container">
+                <img src="1000097519.png" alt="Consolé Bosio BBC">
+            </div>
+            <div class="manager-info">
+                <h3>Consolé Bosio BBC</h3>
+                <div class="title-role">Fondateur & Responsable Principal</div>
+                <p>"Bienvenue sur Bosiocorporation. Retrouvez ici tous les syllabus, cours et supports complets de chimie et sciences pour réussir brillamment à Kisangani."</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📚 Catalogue Complet des Cours de Chimie</h2>
+        
+        <div class="grid">
+            
+            <!-- Carte 1 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">CHIMIE GÉNÉRALE</span>
+                    <h3>Structure de la Matière & Atomes</h3>
+                    <p>Table périodique, liaisons chimiques, stœchiométrie et bilans de matière.</p>
+                </div>
+                <button class="btn" onclick="commander('Chimie Générale - Structure de la Matière')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 2 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">CHIMIE ORGANIQUE</span>
+                    <h3>Alcanes, Alcènes & Composés</h3>
+                    <p>Nomenclature IUPAC, stéréochimie et mécanismes réactionnels de base.</p>
+                </div>
+                <button class="btn" onclick="commander('Chimie Organique - Alcanes & Composés')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 3 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">CHIMIE MINÉRALE</span>
+                    <h3>Solutions Aqueuses & pH</h3>
+                    <p>Équilibres acido-basiques, produits de solubilité et titrages conductométriques.</p>
+                </div>
+                <button class="btn" onclick="commander('Chimie Minérale - Solutions & pH')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 4 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">BIOCHIMIE</span>
+                    <h3>Glucides, Lipides & Protéines</h3>
+                    <p>Structure des macromolécules biologiques et enzymologie fondamentale.</p>
+                </div>
+                <button class="btn" onclick="commander('Biochimie - Macromolécules')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 5 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">CHIMIE ANALYTIQUE</span>
+                    <h3>Méthodes de Dosage & Chromatographie</h3>
+                    <p>Analyse qualitative et quantitative, chromatographie et spectrophotométrie.</p>
+                </div>
+                <button class="btn" onclick="commander('Chimie Analytique - Dosages')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 6 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">THERMOCHIMIE</span>
+                    <h3>Énergétique & Cinétique Chimique</h3>
+                    <p>Enthalpie, entropie, lois de vitesse de réaction et catalyse.</p>
+                </div>
+                <button class="btn" onclick="commander('Thermochimie & Cinétique')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 7 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">CHIMIE PHYSIQUE</span>
+                    <h3>Électrochimie & Piles</h3>
+                    <p>Réactions d'oxydoréduction, lois de Nernst et fonctionnement des accumulateurs.</p>
+                </div>
+                <button class="btn" onclick="commander('Chimie Physique - Électrochimie')">Demander le PDF 📲</button>
+            </div>
+
+            <!-- Carte 8 -->
+            <div class="card">
+                <div>
+                    <span class="card-badge">TRAVAUX PRATIQUES (TP)</span>
+                    <h3>Protocoles & Rapports de Laboratoire</h3>
+                    <p>Modèles de rapports de TP de chimie, consignes de sécurité et manipulations.</p>
+                </div>
+                <button class="btn" onclick="commander('TP de Chimie - Protocoles')">Demander le PDF 📲</button>
+            </div>
+
+        </div>
+
+        <!-- Formulaire de demande sur mesure -->
+        <h2 class="section-title">🔍 Un autre cours ou une autre faculté ?</h2>
+        
+        <div class="form-box">
+            <form id="reqForm">
+                <div class="form-group">
+                    <label>Votre Nom complet :</label>
+                    <input type="text" id="nom" placeholder="Ex: Jean Paul" required>
+                </div>
+                <div class="form-group">
+                    <label>Nom du cours, TP ou Livre recherché :</label>
+                    <input type="text" id="sujet" placeholder="Ex: Mathématiques, Physique, Biochimie avancée..." required>
+                </div>
+                <div class="form-group">
+                    <label>Précisions / Promotion :</label>
+                    <textarea id="details" rows="3" placeholder="Ex: J'ai besoin du syllabus complet de L1 pour les examens..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-whatsapp">Envoyer ma demande sur WhatsApp 🚀</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Bosiocorporation - Responsable Consolé Bosio BBC<br>
+        Service d'appui académique à Kisangani | +243 860743284
+    </footer>
+
+    <script>
+        const phone = "243860743284";
+
+        function commander(titre) {
+            const msg = `Bonjour Bosiocorporation, je souhaite obtenir le document suivant : *${titre}*. Merci !`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        document.getElementById('reqForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const sujet = document.getElementById('sujet').value;
+            const details = document.getElementById('details').value;
+
+            const msg = `Bonjour Bosiocorporation, je suis *${nom}*.\nJe recherche le document suivant : *${sujet}*.\nPrécisions : ${details}`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+    </script>
+</body>
+</html>
